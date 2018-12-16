@@ -5,7 +5,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
-    <p1>103年雙北村里長學歷一覽</p1>
+    <p1>103年雙北村里長學歷一覽</p1><br>
 
     <script>
         d3.select("p1").style("color", "green");
@@ -84,7 +84,8 @@
             width = $(chart[0]).outerWidth(),
             height = $(chart[0]).outerHeight(),
             radius = Math.min(width, height) / divisionRatio;
-    
+            var ratio = width / 600;
+
             if (level == 1) {
                 xVarName = options[0].xaxisl1;
             }
@@ -96,9 +97,9 @@
     
             arc = d3.svg.arc()
                     .outerRadius(radius)
-                    .innerRadius(radius - 200);
+                    .innerRadius(radius - (200 * ratio));
     
-            var arcOver = d3.svg.arc().outerRadius(radius + 20).innerRadius(radius - 180);
+            var arcOver = d3.svg.arc().outerRadius(radius + (20 * ratio)).innerRadius(radius - 180);
             width *= 1.1;
             chart = chart
                     .append("svg")  //append svg element inside #chart
